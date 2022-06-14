@@ -15,16 +15,20 @@ package main
 // Публікація:
 // Створити папку в своєму репозиторії в github та завантажити туди main.go файл, в котрому буде зроблено дане завдання.
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	const Apple = 5.99
 	const Pear = 7.0
 	var Wallet float32 = 23
-	var ShoppingCart float64 = 0
+	var ShoppingCart float32 = 0
 	fmt.Println("1. Скільки грошей треба витратити, щоб купити 9 яблук та 8 груш?")
 	ShoppingCart = Apple*9 + Pear*8
-	fmt.Println(ShoppingCart, " грн")
-	fmt.Println(Wallet) // temp
+	fmt.Println(ShoppingCart, "грн")
+	fmt.Println("Скільки груш ми можемо купити?")
+	ShoppingCart = float32(int(Wallet / Pear))
+	fmt.Println(ShoppingCart)
 
 }
