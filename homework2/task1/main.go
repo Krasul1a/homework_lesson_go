@@ -17,19 +17,24 @@ package main
 import "fmt"
 
 func main() {
-	arr := []int{3, 4, 4, 3, 6, 3}      //{3(0), 4(1), 4(2), 3(3), 6(4), 3(5)}
-	ListElementDelete := []int{1, 3, 5} // Список індексів які треба видалити 1 3 5
+	arr := []int{3, 4, 4, 3, 6, 3} //{3(0), 4(1), 4(2), 3(3), 6(4), 3(5)}
 	var result []int
+	tempArr := []int{arr[0]}				//створюю тимчасовий слайс і додаю перший елемнт так як він завжди буде унікальним 
+	var number bool = true				    // флаг який буде змінюватись якщо елемент повторююеться
+	for i := 0; i < len(arr); i++ {            //
+		for j := 0; j < len(tempArr); j++ {   	
+			if arr[i] == tempArr[j] {         // перевіряю чи є елемент якщо знаходить то змінюю флаг на фолс
+				number = false
+				break
+			}
 
-	for i := 0; i < len(ListElementDelete); i++ {
-		j := ListElementDelete[i] - i // Додаю змішення, бо при видаленню елемента в наступній ітерації циклу індекси не відповідають старому слайсу
-
-		copy(arr[j:], arr[j+1:]) //  Лінк де подивився як видаляти елемент в слайсі бо немає вбудованої функції https://yourbasic.org/golang/delete-element-slice/
-		arr[len(arr)-1] = 0
-		arr = arr[:len(arr)-1]
-
+		}
+		if number {                           // якщо флаг фолс пропускаю , якщо тру то додаю елемент в список
+			tempArr = append(tempArr, arr[i])
+		}
+		number = true					   // скидаю флаг до дефолту
 	}
-	result = arr
+	result = tempArr
 	fmt.Println(result) // Вивести result
 
 }
