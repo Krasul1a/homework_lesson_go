@@ -18,7 +18,7 @@ import "fmt"
 
 func main() {
 	arr := []int{3, 4, 4, 3, 6, 3}      //{3(0), 4(1), 4(2), 3(3), 6(4), 3(5)}
-	ListElementDelete := []int{1, 3, 5} // Список індексів які треба видалити
+	ListElementDelete := []int{1, 3, 5} // Список індексів які треба видалити 1 3 5
 	var result []int
 
 	for i := 0; i < len(ListElementDelete); i++ {
