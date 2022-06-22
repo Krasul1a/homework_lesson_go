@@ -17,19 +17,29 @@ package main
 import "fmt"
 
 func main() {
-	arr := []int{3, 4, 4, 3, 6, 3}      //{3(0), 4(1), 4(2), 3(3), 6(4), 3(5)}
-	ListElementDelete := []int{1, 3, 5} // Список індексів які треба видалити
+	arr := []int{3, 4, 4, 3, 6, 3} //{3(0), 4(1), 4(2), 3(3), 6(4), 3(5)}
 	var result []int
+	tempArr := []int{arr[0]}
 
-	for i := 0; i < len(ListElementDelete); i++ {
-		j := ListElementDelete[i] - i // Додаю змішення, бо при видаленню елемента в наступній ітерації циклу індекси не відповідають старому слайсу
+	var number bool = true
+	for i := 0; i < len(arr); i++ {
+		fmt.Println(arr[i])
+		for j := 0; j < len(tempArr); j++ {
+			if arr[i] == tempArr[j] {
+				number = false
+				fmt.Println(false)
+				break
+			}
 
-		copy(arr[j:], arr[j+1:]) //  Лінк де подивився як видаляти елемент в слайсі бо немає вбудованої функції https://yourbasic.org/golang/delete-element-slice/
-		arr[len(arr)-1] = 0
-		arr = arr[:len(arr)-1]
-
+		}
+		if number {
+			tempArr = append(tempArr, arr[i])
+		}
+		number = true
 	}
-	result = arr
+	result = tempArr
+	_ = result
+	_ = number
 	fmt.Println(result) // Вивести result
 
 }
