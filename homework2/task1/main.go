@@ -17,25 +17,9 @@ package main
 import "fmt"
 
 func main() {
-	arr := []int{3, 4, 4, 3, 6, 3} //{3(0), 4(1), 4(2), 3(3), 6(4), 3(5)}
-	var result []int
-	result = append(result, arr[0])
-	for i := range arr {
-		for j := range result {
-			if i == j {
-				fmt.Println(i)
-				continue
-			} else {
-				result = append(result, j)
-				fmt.Println(j)
-
-			}
-
-		}
-
-	}
-	fmt.Println(result)
+	arr := []int{3, 4, 4, 3, 6, 3}      //{3(0), 4(1), 4(2), 3(3), 6(4), 3(5)}
 	ListElementDelete := []int{1, 3, 5} // Список індексів які треба видалити
+	var result []int
 
 	for i := 0; i < len(ListElementDelete); i++ {
 		j := ListElementDelete[i] - i // Додаю змішення, бо при видаленню елемента в наступній ітерації циклу індекси не відповідають старому слайсу
