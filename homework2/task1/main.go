@@ -17,29 +17,27 @@ package main
 import "fmt"
 
 func main() {
-	arr := []int{3, 4, 4, 3, 6, 3} //{3(0), 4(1), 4(2), 3(3), 6(4), 3(5)}
-	var result []int
-	tempArr := []int{arr[0]}
 
-	var number bool = true
-	for i := 0; i < len(arr); i++ {
-		fmt.Println(arr[i])
-		for j := 0; j < len(tempArr); j++ {
-			if arr[i] == tempArr[j] {
+	arr := []int{3, 4, 4, 3, 6, 3} //{3(0), 4(1), 4(2), 3(3), 6(4), 3(5)}
+
+	var result []int
+	tempArr := []int{arr[0]}				//створюю тимчасовий слайс і додаю перший елемнт так як він завжди буде унікальним 
+	var number bool = true				    // флаг який буде змінюватись якщо елемент повторююеться
+	for i := 0; i < len(arr); i++ {            //
+		for j := 0; j < len(tempArr); j++ {   	
+			if arr[i] == tempArr[j] {         // перевіряю чи є елемент якщо знаходить то змінюю флаг на фолс
 				number = false
-				fmt.Println(false)
 				break
 			}
 
 		}
-		if number {
+
+		if number {                           // якщо флаг фолс пропускаю , якщо тру то додаю елемент в список
 			tempArr = append(tempArr, arr[i])
 		}
-		number = true
+		number = true					   // скидаю флаг до дефолту
 	}
 	result = tempArr
-	_ = result
-	_ = number
 	fmt.Println(result) // Вивести result
 
 }
