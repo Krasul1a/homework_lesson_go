@@ -17,7 +17,7 @@ package main
 import "fmt"
 
 func main() {
-  
+
 	arr := []int{3, 4, 4, 3, 6, 3} //{3(0), 4(1), 4(2), 3(3), 6(4), 3(5)}
 
 	var result []int
@@ -31,6 +31,7 @@ func main() {
 			}
 
 		}
+
 		if number {                           // якщо флаг фолс пропускаю , якщо тру то додаю елемент в список
 			tempArr = append(tempArr, arr[i])
 		}

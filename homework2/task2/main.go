@@ -32,7 +32,7 @@ func main() {
 	var result string
 	var tempInt int32 = 0
 
-	inputSlice := strings.Split(input, " ") // Використання спліту, щоб зробити слайс з цифр, подивився тут https://www.educative.io/answers/how-to-split-a-string-in-golang
+	inputSlice := strings.Split(input, " ") //  Використання спліту, щоб зробити слайс з цифр, подивився тут https://www.educative.io/answers/how-to-split-a-string-in-golang
 
 	for _, el := range inputSlice { // Цикл який переробляє стрінгові числа в int32 да додає в новий слайс int32
 		temp, _ := strconv.Atoi(el)
